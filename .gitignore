@@ -10,14 +10,16 @@
 
 # next.js
 /.next/
-/out/
 
 # production
 /build
+/out
+
 
 # misc
 .DS_Store
 *.pem
+.eslintrc.json
 
 # debug
 npm-debug.log*
@@ -32,3 +34,4 @@ yarn-error.log*
 
 # vercel
 .vercel
+
