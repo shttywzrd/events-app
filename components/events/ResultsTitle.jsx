@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ButtonA from "../ui/ButtonA";
+import Button from "../ui/Button";
 import classes from "./ResultsTitle.module.css";
 
 function ResultsTitle(props) {
@@ -20,7 +20,7 @@ function ResultsTitle(props) {
         />
       </Head>
       <h1>Events in {humanReadableDate}</h1>
-      <ButtonA link="/events">Show all events</ButtonA>
+      <Button link="/events">Show all events</Button>
     </section>
   );
 }

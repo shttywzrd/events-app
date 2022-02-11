@@ -1,6 +1,6 @@
 import EventList from "../components/events/EventList";
 import Title from "../components/ui/Title";
-import { getFeaturedEvents } from "../helpers/api-util";
+import { getFeaturedEvents } from "../lib/mongodb";
 import Head from "next/head";
 import NewsletterRegistration from "../components/input/NewsletterRegistration";
 

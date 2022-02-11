@@ -1,6 +1,6 @@
 import EventList from "../../components/events/EventList";
 import EventSearch from "../../components/events/EventSearch";
-import { getAllEvents } from "../../helpers/api-util";
+import { getAllEvents } from "../../lib/mongodb";
 import { useRouter } from "next/router";
 import Head from "next/head";
 

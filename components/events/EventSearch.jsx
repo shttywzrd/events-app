@@ -1,4 +1,4 @@
-import ButtonA from "../ui/ButtonA";
+import Button from "../ui/Button";
 import styles from "./EventsSearch.module.css";
 import { useRef } from "react";
 
@@ -42,7 +42,7 @@ function EventSearch(props) {
           </select>
         </div>
       </div>
-      <ButtonA>Find Events</ButtonA>
+      <Button>Find Events</Button>
     </form>
   );
 }

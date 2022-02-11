@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ButtonA from "../ui/ButtonA";
+import Button from "../ui/Button";
 import DateIcon from "../icons/DateIcon";
 import AddressIcon from "../icons/AddressIcon";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
@@ -37,12 +37,12 @@ function EventItem(props) {
         </div>
       </div>
       <div className={styles.actions}>
-        <ButtonA link={link}>
+        <Button link={link}>
           <span>Explore Event</span>
           <span className={styles.icon}>
             <ArrowRightIcon />
           </span>
-        </ButtonA>
+        </Button>
       </div>
     </li>
   );

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import EventList from "../../components/events/EventList";
 import { Fragment, useEffect, useState } from "react";
 import ResultsTitle from "../../components/events/ResultsTitle";
-import ButtonA from "../../components/ui/ButtonA";
+import ButtonA from "../../components/ui/Button";
 import ErrorAlert from "../../components/ui/ErrorAlert";
 
 function FilteredEventsPage() {

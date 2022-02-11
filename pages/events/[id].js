@@ -3,10 +3,10 @@ import EventSummary from "../../components/event-detail/EventSummary";
 import EventLogistics from "../../components/event-detail/EventLogistics";
 import EventContent from "../../components/event-detail/EventContent";
 import ErrorAlert from "../../components/ui/ErrorAlert";
-import ButtonA from "../../components/ui/ButtonA";
-import { getAllEvents, getEventById } from "../../helpers/api-util";
+import Button from "../../components/ui/Button";
 import Head from "next/head";
 import Comments from "../../components/input/Comments";
+import { getAllEvents, getEventById } from "../../lib/mongodb";
 
 function EventDetailsPage(props) {
   const { event } = props;
@@ -18,7 +18,7 @@ function EventDetailsPage(props) {
           <p>No event found!</p>
         </ErrorAlert>
         <div className="center">
-          <ButtonA link={"/events/"}>Show All Events</ButtonA>
+          <Button link={"/events/"}>Show All Events</Button>
         </div>
       </Fragment>
     );
@@ -47,9 +47,7 @@ export default EventDetailsPage;
 
 export async function getStaticProps(context) {
   const eventId = context.params.id;
-
   const selectedEvent = await getEventById(eventId);
-
   return {
     props: {
       event: selectedEvent,
@@ -58,13 +56,12 @@ export async function getStaticProps(context) {
   };
 }
 
-export async function getStaticPaths(context) {
+export async function getStaticPaths() {
   const allEvents = await getAllEvents();
   const eventsPaths = allEvents.map((event) => ({
     params: {
       id: event.id,
     },
   }));
-
   return { paths: eventsPaths, fallback: false };
 }

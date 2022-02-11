@@ -1,7 +1,7 @@
 import Link from "next/link";
-import styles from "./ButtonA.module.css";
+import styles from "./Button.module.css";
 
-function ButtonA(props) {
+function Button(props) {
   if (props.link) {
     return (
       <Link href={props.link}>
@@ -17,4 +17,4 @@ function ButtonA(props) {
   );
 }
 
-export default ButtonA;
+export default Button;
