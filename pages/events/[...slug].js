@@ -1,53 +1,31 @@
-import useSWR from "swr";
 import { useRouter } from "next/router";
 import EventList from "../../components/events/EventList";
 import { Fragment, useEffect, useState } from "react";
 import ResultsTitle from "../../components/events/ResultsTitle";
 import ButtonA from "../../components/ui/Button";
 import ErrorAlert from "../../components/ui/ErrorAlert";
+import { getFilteredEvents } from "../../lib/mongodb";
 
 function FilteredEventsPage() {
   const router = useRouter();
-  const [loadedEvents, setLoadedEvents] = useState();
   const [filteredEvents, setFilteredEvents] = useState();
 
-  const fetcher = (url) => fetch(url).then((res) => res.json());
-
-  const { data, error } = useSWR(
-    "https://events-app-43910-default-rtdb.europe-west1.firebasedatabase.app/events.json",
-    fetcher
-  );
-
   useEffect(() => {
-    if (data) {
-      const events = [];
-      for (const key in data) {
-        events.push({ id: key, ...data[key] });
-      }
-      setLoadedEvents(events);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (!router.isReady || !loadedEvents) return;
-    const filter = router.query.slug;
-    const yearFilter = +filter[0];
-    const monthFilter = +filter[1];
-    const filteredEvents = loadedEvents.filter((event) => {
-      const eventDate = new Date(event.date);
-      return (
-        eventDate.getFullYear() === yearFilter &&
-        eventDate.getMonth() === monthFilter - 1
-      );
+    if (!router.isReady) return;
+    const filter = {
+      country: router.query.slug[0],
+      month: router.query.slug[1],
+    };
+    getFilteredEvents(filter).then((events) => {
+      setFilteredEvents(events);
     });
-    setFilteredEvents(filteredEvents);
-  }, [loadedEvents, router]);
+  }, [router]);
 
   if (!filteredEvents) {
     return <p className="center">Loading...</p>;
   }
 
-  if (filteredEvents.length === 0 || error)
+  if (filteredEvents.length === 0)
     return (
       <Fragment>
         <ErrorAlert>

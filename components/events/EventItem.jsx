@@ -7,12 +7,6 @@ import ArrowRightIcon from "../icons/ArrowRightIcon";
 import styles from "./EventItem.module.css";
 
 function EventItem(props) {
-  const formattedDate = new Date(props.date).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-  const formattedAddress = props.location.replace(",", "\n");
   const link = `/events/${props.id}`;
 
   return (
@@ -28,11 +22,11 @@ function EventItem(props) {
           <h2>{props.title}</h2>
           <div className={styles.date}>
             <DateIcon />
-            <time>{formattedDate}</time>
+            <time>{props.month}</time>
           </div>
           <div className={styles.address}>
             <AddressIcon />
-            <address>{formattedAddress}</address>
+            <address>{`${props.city}, ${props.country}`}</address>
           </div>
         </div>
       </div>

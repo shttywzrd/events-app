@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../lib/mongodb";
+import { addNewsletterEmail, connectToDatabase } from "../../lib/mongodb";
 
 async function handler(req, res) {
   if (req.method === "POST") {
@@ -9,11 +9,7 @@ async function handler(req, res) {
       return;
     }
 
-    const { db } = await connectToDatabase();
-
-    db.collection("newsletter")
-      .insertOne({ email: userEmail })
-      .catch((error) => console.error(error));
+    await addNewsletterEmail(userEmail);
 
     res.status(201).json({ message: "Signed Up!" });
   }

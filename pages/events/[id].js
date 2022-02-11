@@ -8,9 +8,7 @@ import Head from "next/head";
 import Comments from "../../components/input/Comments";
 import { getAllEvents, getEventById } from "../../lib/mongodb";
 
-function EventDetailsPage(props) {
-  const { event } = props;
-
+function EventDetailsPage({ event }) {
   if (!event) {
     return (
       <Fragment>
@@ -31,8 +29,9 @@ function EventDetailsPage(props) {
       </Head>
       <EventSummary title={event.title} />
       <EventLogistics
-        date={event.date}
-        address={event.location}
+        month={event.month}
+        country={event.country}
+        city={event.city}
         image={event.image}
         imageAlt={event.title}
       />

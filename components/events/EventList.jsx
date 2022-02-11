@@ -9,8 +9,9 @@ function EventList(props) {
           key={event.id}
           id={event.id}
           title={event.title}
-          location={event.location}
-          date={event.date}
+          country={event.country}
+          city={event.city}
+          month={event.month}
           image={event.image}
         />
       ))}
