@@ -7,8 +7,8 @@ import Head from "next/head";
 function EventsPage(props) {
   const router = useRouter();
 
-  function searchEventsHandler(year, month) {
-    const fullPath = `events/${year}/${month}`;
+  function searchEventsHandler(country, month) {
+    const fullPath = `events/${country}/${month}`;
     router.push(fullPath, undefined, { shallow: true });
   }
 

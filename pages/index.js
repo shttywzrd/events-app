@@ -8,7 +8,7 @@ function HomePage(props) {
   return (
     <div>
       <Head>
-        <title>Featured Events</title>
+        <title>EventsApp</title>
         <meta
           name="description"
           content="Find a lot of great events to visit..."
@@ -17,8 +17,8 @@ function HomePage(props) {
       <div>
         <Title>Featured Events</Title>
       </div>
-      <NewsletterRegistration />
       <EventList events={props.events} />
+      <NewsletterRegistration />
     </div>
   );
 }
