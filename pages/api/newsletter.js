@@ -1,4 +1,4 @@
-import { addNewsletterEmail, connectToDatabase } from "../../lib/mongodb";
+import { addNewsletterEmail } from "../../lib/mongodb";
 
 async function handler(req, res) {
   if (req.method === "POST") {

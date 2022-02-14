@@ -15,6 +15,10 @@ function NewComment(props) {
     const enteredName = nameInputRef.current.value;
     const enteredComment = commentInputRef.current.value;
 
+    emailInputRef.current.value = "";
+    nameInputRef.current.value = "";
+    commentInputRef.current.value = "";
+
     if (
       !enteredEmail ||
       enteredEmail.trim() === "" ||
@@ -36,7 +40,11 @@ function NewComment(props) {
   }
 
   return (
-    <form className={classes.form} onSubmit={sendCommentHandler}>
+    <form
+      className={classes.form}
+      onSubmit={sendCommentHandler}
+      autoComplete="off"
+    >
       <div className={classes.row}>
         <div className={classes.control}>
           <label htmlFor="email">Your email</label>

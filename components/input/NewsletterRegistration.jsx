@@ -8,6 +8,7 @@ function NewsletterRegistration() {
     event.preventDefault();
 
     const enteredEmail = emailRef.current.value;
+    emailRef.current.value = "";
 
     fetch("/api/newsletter", {
       method: "POST",
@@ -21,7 +22,7 @@ function NewsletterRegistration() {
   return (
     <section className={classes.newsletter}>
       <h2>Sign up to stay updated!</h2>
-      <form onSubmit={registrationHandler}>
+      <form onSubmit={registrationHandler} autoComplete="off">
         <div className={classes.control}>
           <input
             type="email"

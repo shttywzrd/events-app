@@ -18,10 +18,13 @@ function EventSearch(props) {
     <form className={styles.form} onSubmit={submitHandler}>
       <div className={styles.controls}>
         <div className={styles.control}>
-          <label htmlFor="country">Country or State</label>
+          <label htmlFor="country">Location</label>
           <select id="country" ref={countryInputRef}>
-            <option value="Georgia">Georgia</option>
-            <option value="b">b</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+            <option value="USA">USA</option>
           </select>
         </div>
         <div className={styles.control}>

@@ -31,6 +31,7 @@ function EventDetailsPage({ event }) {
       <EventLogistics
         month={event.month}
         country={event.country}
+        state={event.state}
         city={event.city}
         image={event.image}
         imageAlt={event.title}

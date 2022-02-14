@@ -57,7 +57,7 @@
 }
 
 .actions a {
-    display: block;
+    display: flex;
 }
 
 .actions a span {

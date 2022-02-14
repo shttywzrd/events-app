@@ -9,7 +9,7 @@ function EventList(props) {
           key={event.id}
           id={event.id}
           title={event.title}
-          country={event.country}
+          country={event.country === "USA" ? event.state : event.country}
           city={event.city}
           month={event.month}
           image={event.image}

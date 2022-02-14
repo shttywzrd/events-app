@@ -5,11 +5,11 @@ function CommentList(props) {
 
   return (
     <ul className={classes.comments}>
-      {comments.map((comment) => (
-        <li key={comment.id}>
+      {comments.map((comment, index) => (
+        <li key={index}>
           <p>{comment.text}</p>
           <div>
-            By <address>{comment.name}</address>
+            By <address>{comment.username}</address>
           </div>
         </li>
       ))}

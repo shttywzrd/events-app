@@ -4,7 +4,12 @@ import DateIcon from "../icons/DateIcon";
 import LogisticsItem from "./LogisticsItem";
 import classes from "./EventLogistics.module.css";
 
-function EventLogistics({ month, city, country, image, imageAlt }) {
+function EventLogistics({ month, city, country, state, image, imageAlt }) {
+  let location;
+  state
+    ? (location = `${city}, ${state}, ${country}`)
+    : (location = `${city}, ${country}`);
+
   return (
     <section className={classes.logistics}>
       <div className={classes.image}>
@@ -15,7 +20,7 @@ function EventLogistics({ month, city, country, image, imageAlt }) {
           <time>{month}</time>
         </LogisticsItem>
         <LogisticsItem icon={AddressIcon}>
-          <address>{`${city}, ${country}`}</address>
+          <address>{location}</address>
         </LogisticsItem>
       </ul>
     </section>
