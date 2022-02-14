@@ -1,1 +1,3 @@
-[Hosted on Vercel](https://events-app-six.vercel.app/)
+## EventsApp
+
+[Deployed on Vercel](https://events-app-six.vercel.app/)
